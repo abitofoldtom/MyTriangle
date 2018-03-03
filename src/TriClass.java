@@ -13,8 +13,9 @@ public class TriClass {
     public TriClass() {
 
     }
-
+    
     public boolean isTriangle(int x, int y, int z) {
+        // TODO create list, sort, and then get longest and others
         int longestSide = findLongestSide(x, y, z);
         return false;
     }
