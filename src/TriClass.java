@@ -1,3 +1,6 @@
+
+import java.util.Arrays;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -15,16 +18,11 @@ public class TriClass {
     }
     
     public boolean isTriangle(int x, int y, int z) {
-        // TODO create list, sort, and then get longest and others
-        int longestSide = findLongestSide(x, y, z);
-        return false;
-    }
-
-    private int findLongestSide(int x, int y, int z) {
-        int max = 0;
-        max = Math.max(x, y);
-        max = Math.max(max, z);
-        return max;
+        int[] sides = {x, y, z};
+        Arrays.sort(sides);
+        int longestSide = sides[2];
+        int sumOfOtherSides = sides[0] + sides[1];
+        return longestSide < sumOfOtherSides;
     }
 
     public String triangleType(int x, int y, int z) {
