@@ -39,11 +39,7 @@ public class TriClassTest {
     public void tearDown() {
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    // Test isTriangle
     @Test
     public void testIsTriangle001() {
         int x = 10;
@@ -151,6 +147,91 @@ public class TriClassTest {
         boolean expected = false;
 
         boolean actual = triClass.isTriangle(x, y, z);
+
+        assertEquals(expected, actual);
+
+    }
+
+    //Test triangleType()
+    @Test
+    public void triangleType001() {
+        int x = 3;
+        int y = 4;
+        int z = 9;
+
+        String expected = "NT";
+
+        String actual = triClass.triangleType(x, y, z);
+
+        assertEquals(expected, actual);
+
+    }
+
+    @Test
+    public void triangleType002() {
+        int x = 9;
+        int y = 8;
+        int z = 6;
+
+        String expected = "AAT";
+
+        String actual = triClass.triangleType(x, y, z);
+
+        assertEquals(expected, actual);
+
+    }
+
+    @Test
+    public void triangleType003() {
+        int x = 25;
+        int y = 24;
+        int z = 7;
+
+        String expected = "RAT";
+
+        String actual = triClass.triangleType(x, y, z);
+
+        assertEquals(expected, actual);
+
+    }
+
+    @Test
+    public void triangleType004() {
+        int x = 12;
+        int y = 5;
+        int z = 16;
+
+        String expected = "OAT";
+
+        String actual = triClass.triangleType(x, y, z);
+
+        assertEquals(expected, actual);
+
+    }
+
+    @Test
+    public void triangleType005() {
+        int x = 5;
+        int y = 5;
+        int z = 5;
+
+        String expected = "EqT";
+
+        String actual = triClass.triangleType(x, y, z);
+
+        assertEquals(expected, actual);
+
+    }
+
+    @Test
+    public void triangleType006() {
+        int x = 10;
+        int y = 10;
+        int z = 5;
+
+        String expected = "IsosT";
+
+        String actual = triClass.triangleType(x, y, z);
 
         assertEquals(expected, actual);
 
