@@ -6,7 +6,6 @@ import java.util.Arrays;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author tguerney
@@ -30,33 +29,73 @@ public class Triangle {
         return sides;
     }
 
-    public int getLongestSide() {
-        return longestSide;
+    public boolean isTriangle() {
+        return longestSide < getSumOfOtherSides();
     }
 
-    public int getOtherSideA() {
-        return otherSideA;
+    public boolean isEquilateral() {
+        if (isTriangle()) {
+            if (longestSide == otherSideA && longestSide == otherSideB) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
-    public int getOtherSideB() {
-        return otherSideB;
+    public boolean isIsosceles() {
+        if (isTriangle() && !isEquilateral()) {
+            if (longestSide == otherSideA || longestSide == otherSideB
+                    || otherSideA == otherSideB) {
+                return true;
+
+            }
+        }
+
+        return false;
+
     }
-    
-    public int getSumOfOtherSides() {
+
+    public boolean isRight() {
+        if (isTriangle()) {
+            if (getSquareOfLongestSide() == getSumOfSquareOfOtherSides()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public boolean isObtuse() {
+        if (isTriangle()) {
+            if (getSquareOfLongestSide() > getSumOfSquareOfOtherSides()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public boolean isAcute() {
+        if (isTriangle()) {
+            if (getSquareOfLongestSide() < getSumOfSquareOfOtherSides()) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private int getSumOfOtherSides() {
         return otherSideA + otherSideB;
     }
-    
-    public int getSquareOfLongestSide() {
+
+    private int getSquareOfLongestSide() {
         return longestSide * longestSide;
     }
-    
-    public int getSumOfSquareOfOtherSides() {
+
+    private int getSumOfSquareOfOtherSides() {
         return otherSideA * otherSideA + otherSideB * otherSideB;
     }
-    
-    public boolean isTriangle() {
-        return getLongestSide() < getSumOfOtherSides();
-    }
-    
-    
+
 }

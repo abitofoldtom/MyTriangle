@@ -21,10 +21,18 @@ public class TriClass {
 
     public String triangleType(int x, int y, int z) {
         Triangle triangle = new Triangle(x, y, z);
-        if (!triangle.isTriangle()) {
-            return "NT";
+        if (triangle.isEquilateral()) {
+            return "EqT";
+        } else if (triangle.isIsosceles()) {
+            return "IsosT";
+        } else if (triangle.isRight()) {
+            return "RAT";
+        } else if (triangle.isObtuse()) {
+            return "OAT";
+        } else if (triangle.isAcute()) {
+            return "AAT";
         } else {
-            return "TODO";
+            return "NT";
         }
     }
 
