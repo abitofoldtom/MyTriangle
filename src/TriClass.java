@@ -14,6 +14,12 @@ public class TriClass {
 
     }
 
+    /**
+     * @param x - the length of one side of a triangle, if one can be formed
+     * @param y - the length of another side of a triangle, if one can be formed
+     * @param z - the length of the third side of a triangle, if one can be formed
+     * @return true if a triangle can be formed with the three sides x, y and z
+     */
     public boolean isTriangle(int x, int y, int z) {
         Triangle triangle = new Triangle(x, y, z);
         return triangle.isTriangle();

@@ -39,19 +39,22 @@ public class TriClassTest {
     public void tearDown() {
     }
 
-    // Test isTriangle
+    /**
+     * JUnit test corresponds to the first test case in Test Plan table
+     */
     @Test
     public void testIsTriangle001() {
-        int x = 10;
+        int x = 3;
         int y = 4;
-        int z = 4;
+        int z = 9;
 
         boolean expected = false;
+
+        TriClass triClass = new TriClass();
 
         boolean actual = triClass.isTriangle(x, y, z);
 
         assertEquals(expected, actual);
-
     }
 
     @Test
@@ -61,6 +64,8 @@ public class TriClassTest {
         int z = 4;
 
         boolean expected = false;
+        
+        TriClass triClass = new TriClass();
 
         boolean actual = triClass.isTriangle(x, y, z);
 
@@ -75,6 +80,8 @@ public class TriClassTest {
         int z = 10;
 
         boolean expected = false;
+        
+        TriClass triClass = new TriClass();
 
         boolean actual = triClass.isTriangle(x, y, z);
 
@@ -89,6 +96,8 @@ public class TriClassTest {
         int z = 5;
 
         boolean expected = true;
+        
+        TriClass triClass = new TriClass();
 
         boolean actual = triClass.isTriangle(x, y, z);
 
@@ -103,6 +112,8 @@ public class TriClassTest {
         int z = 5;
 
         boolean expected = false;
+        
+        TriClass triClass = new TriClass();
 
         boolean actual = triClass.isTriangle(x, y, z);
 
@@ -117,6 +128,8 @@ public class TriClassTest {
         int z = 5;
 
         boolean expected = false;
+        
+        TriClass triClass = new TriClass();
 
         boolean actual = triClass.isTriangle(x, y, z);
 
@@ -131,6 +144,8 @@ public class TriClassTest {
         int z = 0;
 
         boolean expected = false;
+        
+        TriClass triClass = new TriClass();
 
         boolean actual = triClass.isTriangle(x, y, z);
 
@@ -145,6 +160,24 @@ public class TriClassTest {
         int z = 0;
 
         boolean expected = false;
+        
+        TriClass triClass = new TriClass();
+
+        boolean actual = triClass.isTriangle(x, y, z);
+
+        assertEquals(expected, actual);
+
+    }
+
+    @Test
+    public void testIsTriangle009() {
+        int x = 10;
+        int y = 4;
+        int z = 4;
+
+        boolean expected = false;
+        
+        TriClass triClass = new TriClass();
 
         boolean actual = triClass.isTriangle(x, y, z);
 
@@ -237,3 +270,5 @@ public class TriClassTest {
 
     }
 }
+
+
