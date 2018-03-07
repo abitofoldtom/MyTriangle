@@ -64,7 +64,7 @@ public class TriClassTest {
         int z = 4;
 
         boolean expected = false;
-        
+
         TriClass triClass = new TriClass();
 
         boolean actual = triClass.isTriangle(x, y, z);
@@ -80,7 +80,7 @@ public class TriClassTest {
         int z = 10;
 
         boolean expected = false;
-        
+
         TriClass triClass = new TriClass();
 
         boolean actual = triClass.isTriangle(x, y, z);
@@ -96,7 +96,7 @@ public class TriClassTest {
         int z = 5;
 
         boolean expected = true;
-        
+
         TriClass triClass = new TriClass();
 
         boolean actual = triClass.isTriangle(x, y, z);
@@ -112,7 +112,7 @@ public class TriClassTest {
         int z = 5;
 
         boolean expected = false;
-        
+
         TriClass triClass = new TriClass();
 
         boolean actual = triClass.isTriangle(x, y, z);
@@ -128,7 +128,7 @@ public class TriClassTest {
         int z = 5;
 
         boolean expected = false;
-        
+
         TriClass triClass = new TriClass();
 
         boolean actual = triClass.isTriangle(x, y, z);
@@ -144,7 +144,7 @@ public class TriClassTest {
         int z = 0;
 
         boolean expected = false;
-        
+
         TriClass triClass = new TriClass();
 
         boolean actual = triClass.isTriangle(x, y, z);
@@ -160,7 +160,7 @@ public class TriClassTest {
         int z = 0;
 
         boolean expected = false;
-        
+
         TriClass triClass = new TriClass();
 
         boolean actual = triClass.isTriangle(x, y, z);
@@ -176,10 +176,40 @@ public class TriClassTest {
         int z = 4;
 
         boolean expected = false;
-        
+
         TriClass triClass = new TriClass();
 
         boolean actual = triClass.isTriangle(x, y, z);
+
+        assertEquals(expected, actual);
+
+    }
+
+    @Test
+    public void testIsEquilateral001() {
+
+        int x = 10;
+        int y = 10;
+        int z = 10;
+
+        boolean expected = true;
+
+        TriClass triClass = new TriClass();
+
+        boolean actual = triClass.isEquilateral(x, y, z);
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testIsEquilateral002() {
+        int x = 5;
+        int y = 5;
+        int z = 5;
+
+        boolean expected = true;
+
+        boolean actual = triClass.isEquilateral(x, y, z);
 
         assertEquals(expected, actual);
 
@@ -193,6 +223,8 @@ public class TriClassTest {
         int z = 9;
 
         String expected = "NT";
+
+        TriClass triClass = new TriClass();
 
         String actual = triClass.triangleType(x, y, z);
 
@@ -243,20 +275,6 @@ public class TriClassTest {
     }
 
     @Test
-    public void triangleType005() {
-        int x = 5;
-        int y = 5;
-        int z = 5;
-
-        String expected = "EqT";
-
-        String actual = triClass.triangleType(x, y, z);
-
-        assertEquals(expected, actual);
-
-    }
-
-    @Test
     public void triangleType006() {
         int x = 10;
         int y = 10;
@@ -270,5 +288,3 @@ public class TriClassTest {
 
     }
 }
-
-
