@@ -215,6 +215,20 @@ public class TriClassTest {
 
     }
 
+    @Test
+    public void testIsIsosceles001() {
+        int x = 10;
+        int y = 10;
+        int z = 5;
+
+        boolean expected = true;
+
+        boolean actual = triClass.isIsosceles(x, y, z);
+
+        assertEquals(expected, actual);
+
+    }
+
     //Test triangleType()
     @Test
     public void triangleType001() {
@@ -274,17 +288,4 @@ public class TriClassTest {
 
     }
 
-    @Test
-    public void triangleType006() {
-        int x = 10;
-        int y = 10;
-        int z = 5;
-
-        String expected = "IsosT";
-
-        String actual = triClass.triangleType(x, y, z);
-
-        assertEquals(expected, actual);
-
-    }
 }

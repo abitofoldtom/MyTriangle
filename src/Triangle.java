@@ -23,12 +23,6 @@ public class Triangle {
         this.longestSide = sortedSides[2];
     }
 
-    private int[] sortSides(int x, int y, int z) {
-        int[] sides = {x, y, z};
-        Arrays.sort(sides);
-        return sides;
-    }
-
     public boolean isTriangle() {
         return longestSide < getSumOfOtherSides();
     }
