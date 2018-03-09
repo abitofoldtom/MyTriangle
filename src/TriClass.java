@@ -1,6 +1,5 @@
 
 import java.util.Arrays;
-import java.util.HashMap;
 
 /**
  *
@@ -78,7 +77,7 @@ public class TriClass {
     public boolean isAcuteAngled(int x, int y, int z) {
         boolean result = false;
 
-        if (isTriangle(x, y, z)) {
+        if (isTriangle(x, y, z) && !isEquilateral(x, y, z) && !isIsosceles(x, y, z)) {
             Sides sides = new Sides(x, y, z);
             if (sides.squareOfLongestSide() < sides.sumOfSquareOfOtherSides()) {
                 result = true;
