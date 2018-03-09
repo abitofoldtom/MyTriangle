@@ -1,5 +1,6 @@
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 
 /*
@@ -25,8 +26,7 @@ public class TriClass {
      * @return true if a triangle can be formed with the three sides x, y and z
      */
     public boolean isTriangle(int x, int y, int z) {
-        Triangle triangle = new Triangle(x, y, z);
-        return triangle.isTriangle();
+        return longestSide(x, y, z) < sumOfTwoShortestSides(x, y, z);
     }
 
     /**
@@ -68,21 +68,30 @@ public class TriClass {
         return result;
     }
 
-    public boolean isIsosceles(int longestSide, int otherSideA, int otherSideB) {
+    public boolean isIsosceles(int x, int y, int z) {
         boolean result = false;
 
-        if (longestSide == otherSideA || longestSide == otherSideB
-                || otherSideA == otherSideB) {
-            result = true;
+        if (isTriangle(x, y, z) && !isEquilateral(x, y, z)) {
+            if (x == y || x == z || y == z) {
+                result = true;
+            }
         }
-        return result;
 
+        return result;
     }
 
-    private int[] sortSides(int x, int y, int z) {
-        int[] sides = {x, y, z};
-        Arrays.sort(sides);
-        return sides;
+    private HashMap sortSides(int x, int y, int z) {
+        HashMap<SIDE, Integer> sideMap = new HashMap<>();
+        int[] sideArray = {x, y, z};
+        Arrays.sort(sideArray);
+        sideMap.put(SIDE.OTHER_A, sideArray[0]);
+        sideMap.put(SIDE.OTHER_B, sideArray[1]);
+        sideMap.put(SIDE.LONGEST, sideArray[2]);
+        return sideMap;
+    }
+
+    public enum SIDE {
+        LONGEST, OTHER_A, OTHER_B;
     }
 
 }
