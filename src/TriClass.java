@@ -2,12 +2,6 @@
 import java.util.Arrays;
 import java.util.HashMap;
 
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 /**
  *
  * @author tguerney
@@ -26,7 +20,8 @@ public class TriClass {
      * @return true if a triangle can be formed with the three sides x, y and z
      */
     public boolean isTriangle(int x, int y, int z) {
-        return longestSide(x, y, z) < sumOfTwoShortestSides(x, y, z);
+        Sides sides = new Sides(x, y, z);
+        return sides.longest < sides.sumOfOtherSides();
     }
 
     /**
@@ -44,12 +39,12 @@ public class TriClass {
             type = "EqT";
         } else if (isIsosceles(x, y, z)) {
             type = "IsoT";
-//        } else if (isAcuteAngled(x, y, z)) {
-//            type = "AAT";
-//        } else if (isRightAngled(x, y, z)) {
-//            type = "RAT";
-//        } else if (isObtuse(x, y, z)) {
-//            type = "OAT";
+        } else if (isAcuteAngled(x, y, z)) {
+            type = "AAT";
+        } else if (isRightAngled(x, y, z)) {
+            type = "RAT";
+        } else if (isObtuse(x, y, z)) {
+            type = "OAT";
         } else {
             System.err.println("Unknown type – should not be here");
         }
@@ -80,18 +75,76 @@ public class TriClass {
         return result;
     }
 
-    private HashMap sortSides(int x, int y, int z) {
-        HashMap<SIDE, Integer> sideMap = new HashMap<>();
-        int[] sideArray = {x, y, z};
-        Arrays.sort(sideArray);
-        sideMap.put(SIDE.OTHER_A, sideArray[0]);
-        sideMap.put(SIDE.OTHER_B, sideArray[1]);
-        sideMap.put(SIDE.LONGEST, sideArray[2]);
-        return sideMap;
+    public boolean isAcuteAngled(int x, int y, int z) {
+        boolean result = false;
+
+        if (isTriangle(x, y, z)) {
+            Sides sides = new Sides(x, y, z);
+            if (sides.squareOfLongestSide() < sides.sumOfSquareOfOtherSides()) {
+                result = true;
+            }
+        }
+
+        return result;
     }
 
-    public enum SIDE {
-        LONGEST, OTHER_A, OTHER_B;
+    public boolean isRightAngled(int x, int y, int z) {
+        boolean result = false;
+
+        if (isTriangle(x, y, z)) {
+            Sides sides = new Sides(x, y, z);
+            if (sides.squareOfLongestSide() == sides.sumOfSquareOfOtherSides()) {
+                result = true;
+            }
+        }
+
+        return result;
+    }
+
+    public boolean isObtuse(int x, int y, int z) {
+        boolean result = false;
+
+        if (isTriangle(x, y, z)) {
+            Sides sides = new Sides(x, y, z);
+            if (sides.squareOfLongestSide() > sides.sumOfSquareOfOtherSides()) {
+                result = true;
+            }
+        }
+
+        return result;
+    }
+
+    class Sides {
+
+        private int longest;
+        private int otherA;
+        private int otherB;
+
+        public Sides(int x, int y, int z) {
+            int[] sortedSides = sortSides(x, y, z);
+            this.otherA = sortedSides[0];
+            this.otherB = sortedSides[1];
+            this.longest = sortedSides[2];
+        }
+
+        private int[] sortSides(int x, int y, int z) {
+            int[] sides = {x, y, z};
+            Arrays.sort(sides);
+            return sides;
+        }
+
+        private int sumOfOtherSides() {
+            return otherA + otherB;
+        }
+
+        private int squareOfLongestSide() {
+            return longest * longest;
+        }
+
+        private int sumOfSquareOfOtherSides() {
+            return otherA * otherA + otherB * otherB;
+        }
+
     }
 
 }

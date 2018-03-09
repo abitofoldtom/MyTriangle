@@ -229,60 +229,43 @@ public class TriClassTest {
 
     }
 
-    //Test triangleType()
     @Test
-    public void triangleType001() {
-        int x = 3;
-        int y = 4;
-        int z = 9;
-
-        String expected = "NT";
-
-        TriClass triClass = new TriClass();
-
-        String actual = triClass.triangleType(x, y, z);
-
-        assertEquals(expected, actual);
-
-    }
-
-    @Test
-    public void triangleType002() {
+    public void testIsAcuteAngled001() {
         int x = 9;
         int y = 8;
         int z = 6;
 
-        String expected = "AAT";
+        boolean expected = true;
 
-        String actual = triClass.triangleType(x, y, z);
+        boolean actual = triClass.isAcuteAngled(x, y, z);
 
         assertEquals(expected, actual);
 
     }
 
     @Test
-    public void triangleType003() {
+    public void testIsRightAngled001() {
         int x = 25;
         int y = 24;
         int z = 7;
 
-        String expected = "RAT";
+        boolean expected = true;
 
-        String actual = triClass.triangleType(x, y, z);
+        boolean actual = triClass.isRightAngled(x, y, z);
 
         assertEquals(expected, actual);
 
     }
 
     @Test
-    public void triangleType004() {
+    public void testIsObtuse001() {
         int x = 12;
         int y = 5;
         int z = 16;
 
-        String expected = "OAT";
+        boolean expected = true;
 
-        String actual = triClass.triangleType(x, y, z);
+        boolean actual = triClass.isObtuse(x, y, z);
 
         assertEquals(expected, actual);
 
