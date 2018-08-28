@@ -26,6 +26,8 @@ public class TriClass {
 
     //this is TOMS CHANGE DAMN YOUUUUU change to the file
 
+    // and cam's change too, in harmony this time
+
     /**
      *
      * @param x - the length of one side of a triangle, if one can be formed
