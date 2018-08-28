@@ -23,7 +23,8 @@ public class TriClass {
         return sides.longest < sides.sumOfOtherSides();
     }
 
-    //this is TOMDAWGS change to the file
+
+    //this is CAMS change to the file
 
     /**
      *
